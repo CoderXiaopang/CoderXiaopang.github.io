@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多乐保皇记牌器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        .player {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .players-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .player .actions {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            margin: 5px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>多乐保皇记牌器</h1>
+        <button onclick="initializeCards()">初始化牌数</button>
+        <div class="players-container">
+            <!-- 玩家结构例子，可以复制并修改ID和玩家编号创建其他玩家 -->
+            <!-- 玩家 1 -->
+            <div class="player" id="player1">
+                <div>玩家 1</div>
+                <div>剩余牌数: <span>40</span></div>
+                <div class="actions">
+                    <button onclick="updateCards('player1', -1)">出 1 张</button>
+                    <button onclick="updateCards('player1', -2)">出 2 张</button>
+                    <button onclick="updateCards('player1', -3)">出 3 张</button>
+                    <button onclick="updateCards('player1', -4)">出 4 张</button>
+                    <button onclick="updateCards('player1', -5)">出 5 张</button>
+                    <button onclick="updateCards('player1', -6)">出 6 张</button>
+                    <button onclick="updateCards('player1', -7)">出 7 张</button>
+                    <button onclick="updateCards('player1', -8)">出 8 张</button>
+                    <button onclick="updateCards('player1', -9)">出 9 张</button>
+                    <button onclick="updateCards('player1', 1)">增加 1 张</button>
+                </div>
+            </div>
+
+            <div class="player" id="player2">
+                <div>玩家 2</div>
+                <div>剩余牌数: <span>40</span></div>
+                <div class="actions">
+                    <button onclick="updateCards('player2', -1)">出 1 张</button>
+                    <button onclick="updateCards('player2', -2)">出 2 张</button>
+                    <button onclick="updateCards('player2', -3)">出 3 张</button>
+                    <button onclick="updateCards('player2', -4)">出 4 张</button>
+                    <button onclick="updateCards('player2', -5)">出 5 张</button>
+                    <button onclick="updateCards('player2', -6)">出 6 张</button>
+                    <button onclick="updateCards('player2', -7)">出 7 张</button>
+                    <button onclick="updateCards('player2', -8)">出 8 张</button>
+                    <button onclick="updateCards('player2', -9)">出 9 张</button>
+                    <button onclick="updateCards('player2', 1)">增加 1 张</button>
+                </div>
+            </div>
+
+            <div class="player" id="player3">
+                <div>玩家 3</div>
+                <div>剩余牌数: <span>40</span></div>
+                <div class="actions">
+                    <button onclick="updateCards('player3', -1)">出 1 张</button>
+                    <button onclick="updateCards('player3', -2)">出 2 张</button>
+                    <button onclick="updateCards('player3', -3)">出 3 张</button>
+                    <button onclick="updateCards('player3', -4)">出 4 张</button>
+                    <button onclick="updateCards('player3', -5)">出 5 张</button>
+                    <button onclick="updateCards('player3', -6)">出 6 张</button>
+                    <button onclick="updateCards('player3', -7)">出 7 张</button>
+                    <button onclick="updateCards('player3', -8)">出 8 张</button>
+                    <button onclick="updateCards('player3', -9)">出 9 张</button>
+                    <button onclick="updateCards('player3', 1)">增加 1 张</button>
+                </div>
+            </div>
+
+            <div class="player" id="player4">
+                <div>玩家 4</div>
+                <div>剩余牌数: <span>40</span></div>
+                <div class="actions">
+                    <button onclick="updateCards('player4', -1)">出 1 张</button>
+                    <button onclick="updateCards('player4', -2)">出 2 张</button>
+                    <button onclick="updateCards('player4', -3)">出 3 张</button>
+                    <button onclick="updateCards('player4', -4)">出 4 张</button>
+                    <button onclick="updateCards('player4', -5)">出 5 张</button>
+                    <button onclick="updateCards('player4', -6)">出 6 张</button>
+                    <button onclick="updateCards('player4', -7)">出 7 张</button>
+                    <button onclick="updateCards('player4', -8)">出 8 张</button>
+                    <button onclick="updateCards('player4', -9)">出 9 张</button>
+                    <button onclick="updateCards('player4', 1)">增加 1 张</button>
+                </div>
+            </div>
+            <!-- 其他玩家请复制上述结构并相应修改 -->
+        </div>
+    </div>
+
+    <script>
+        function updateCards(playerId, change) {
+            const player = document.getElementById(playerId);
+            const cardSpan = player.querySelector('span');
+            const currentCards = parseInt(cardSpan.textContent);
+            cardSpan.textContent = currentCards + change;
+        }
+
+        function initializeCards() {
+            const players = document.querySelectorAll('.player');
+            players.forEach(player => {
+                const cardSpan = player.querySelector('span');
+                cardSpan.textContent = '40';
+            });
+        }
+
+    </script>
+</body>
+
+</html>
